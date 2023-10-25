@@ -35,6 +35,8 @@ export default class HomeDepartamentos extends Component {
               <th>Nombre</th>
               <th>Localidad</th>
               <th> Detalles </th>
+              <th> Eliminar </th>
+              <th> Modificar </th>
             </tr>
           </thead>
           <tbody>
@@ -43,9 +45,17 @@ export default class HomeDepartamentos extends Component {
                 <td>{departamento.nombre}</td>
                 <td>{departamento.localidad}</td>
                 <td>
-                <NavLink to={"/details/" + departamento.numero } className="btn btn-primary">Detalles </NavLink>
+                <NavLink to={"/details/" + departamento.numero + "/" + departamento.nombre + "/" + departamento.localidad } className="btn btn-primary">Detalles </NavLink>
                   
                 </td>
+                <td>
+                <NavLink className="btn btn-danger" to={"/delete/" + departamento.numero}>Eliminar </NavLink>
+                </td>
+
+                <td>
+                <NavLink className="btn btn-warning" to={"/update/" + departamento.numero}>Modificar </NavLink>
+                </td>
+
               </tr>
             ))}
           </tbody>
@@ -54,4 +64,3 @@ export default class HomeDepartamentos extends Component {
     );
   }
 }
-
